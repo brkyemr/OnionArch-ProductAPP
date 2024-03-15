@@ -28,3 +28,7 @@ dotnet sln ProductAPP.sln add ./Infrastructure/ProductApp.Infrastructure
 dotnet sln ProductAPP.sln add ./Infrastructure/ProductApp.Persistence
 
 dotnet sln ProductAPP.sln add ./Presentation/ProductApp.Api
+
+
+
+dotnet add package Microsoft.EntityFrameworkCore --version 7.0.4

@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProductApp.Application.Interfaces.Repositories;
 using ProductApp.Persistence.Context;
+using ProductApp.Persistence.Repositories;
 
 namespace ProductApp.Persistence
 {
@@ -16,6 +18,8 @@ namespace ProductApp.Persistence
             Console.WriteLine("*** DefaultConnection ==> ",configuration.GetConnectionString("DefaultConnection"));
             services.AddDbContext<AppDbContext>( opt => 
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             
         }
     }
