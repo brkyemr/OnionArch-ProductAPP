@@ -6,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProductApp.Application.Interfaces.Repositories;
+using ProductApp.Application.Interfaces.UnitOfWorks;
 using ProductApp.Persistence.Context;
 using ProductApp.Persistence.Repositories;
+using ProductApp.Persistence.UnitOfWorks;
 
 namespace ProductApp.Persistence
 {
@@ -21,6 +23,7 @@ namespace ProductApp.Persistence
 
             services.AddScoped(typeof(IReadRepository<>),typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>),typeof(WriteRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             
         }
