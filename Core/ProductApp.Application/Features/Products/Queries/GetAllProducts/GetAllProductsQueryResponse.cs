@@ -2,17 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ProductApp.Domain.Common;
 
-namespace ProductApp.Domain.Entities
+namespace ProductApp.Application.Features.Products.Queries.GetAllProducts
 {
-    public class Product : EntityBase
+    public class GetAllProductsQueryResponse
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
-
-        public ICollection<Category> Categories { get; set;}
     }
 }

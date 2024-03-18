@@ -19,7 +19,7 @@ namespace ProductApp.Persistence.Configurations
                 Id = 1,
                 Title = faker.Commerce.ProductName(),
                 Description = faker.Commerce.ProductDescription(),
-                BrandId = 1,
+                //BrandId = 1,
                 Discount = faker.Random.Decimal(0,10),
                 IsDeleted = false,
                 Price = faker.Finance.Amount(10,1000)
@@ -29,7 +29,7 @@ namespace ProductApp.Persistence.Configurations
                 Id = 2,
                 Title = faker.Commerce.ProductName(),
                 Description = faker.Commerce.ProductDescription(),
-                BrandId = 2,
+                //BrandId = 2,
                 Discount = faker.Random.Decimal(0,10),
                 IsDeleted = false,
                 Price = faker.Finance.Amount(10,1000)
