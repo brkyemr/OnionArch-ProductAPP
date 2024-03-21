@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProductApp.Application.DTOs;
 
 namespace ProductApp.Application.Features.Products.Queries.GetAllProducts
 {
@@ -11,5 +12,7 @@ namespace ProductApp.Application.Features.Products.Queries.GetAllProducts
         public string Description { get; set; }
         public decimal Price { get; set; }
         public decimal Discount { get; set; }
+
+        public BrandDto Brand { get; set;}
     }
 }

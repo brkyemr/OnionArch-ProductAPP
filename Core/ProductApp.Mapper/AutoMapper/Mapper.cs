@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.Internal;
-using ProductApp.Application.Interfaces.AutoMapper;
-using IMapper = AutoMapper.IMapper;
 
 namespace ProductApp.Mapper.AutoMapper
 {

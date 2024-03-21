@@ -1,5 +1,6 @@
 using ProductApp.Persistence;
 using ProductApp.Application;
+using ProductApp.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ Console.WriteLine("config read in the pg.cs => ",builder.Configuration["Connecti
 
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
 var app = builder.Build();
 
 
