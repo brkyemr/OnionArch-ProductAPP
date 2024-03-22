@@ -20,6 +20,7 @@ namespace ProductApp.Persistence.Context
         public DbSet<Detail> Details { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories {get; set;}
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,11 +32,11 @@ namespace ProductApp.Persistence.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=ProductApp;User Id=sa;Password=**********;TrustServerCertificate=true;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=ProductApp;User Id=sa;Password=************;TrustServerCertificate=true;");
             }
-        }
+        } */
         //migration için kullandım kapıyorum
-         */
+        
 
 
     }

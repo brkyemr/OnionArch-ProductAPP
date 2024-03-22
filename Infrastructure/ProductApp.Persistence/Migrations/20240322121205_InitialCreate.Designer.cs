@@ -12,7 +12,7 @@ using ProductApp.Persistence.Context;
 namespace ProductApp.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240314205052_InitialCreate")]
+    [Migration("20240322121205_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,21 +24,6 @@ namespace ProductApp.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("CategoryProduct", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("CategoryProduct");
-                });
 
             modelBuilder.Entity("ProductApp.Domain.Entities.Brand", b =>
                 {
@@ -67,23 +52,23 @@ namespace ProductApp.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2000),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6750),
                             IsDeleted = false,
-                            Name = "Computers & Home"
+                            Name = "Electronics & Automotive"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2020),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6770),
                             IsDeleted = false,
-                            Name = "Books"
+                            Name = "Kids, Grocery & Clothing"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2050),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6780),
                             IsDeleted = true,
-                            Name = "Music, Music & Jewelery"
+                            Name = "Sports"
                         });
                 });
 
@@ -119,7 +104,7 @@ namespace ProductApp.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2840),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7260),
                             IsDeleted = false,
                             Name = "Elektronik",
                             ParentId = 0,
@@ -128,7 +113,7 @@ namespace ProductApp.Persistence.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7260),
                             IsDeleted = false,
                             Name = "Giyim",
                             ParentId = 0,
@@ -137,7 +122,7 @@ namespace ProductApp.Persistence.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7270),
                             IsDeleted = false,
                             Name = "Bilgisayar",
                             ParentId = 1,
@@ -146,7 +131,7 @@ namespace ProductApp.Persistence.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7270),
                             IsDeleted = false,
                             Name = "Çanta",
                             ParentId = 2,
@@ -190,28 +175,28 @@ namespace ProductApp.Persistence.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(6990),
-                            Description = "Voluptatem non.",
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5560),
+                            Description = "Voluptate minima.",
                             IsDeleted = false,
-                            Title = "Aperiam."
+                            Title = "Yaptı."
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 3,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(7120),
-                            Description = "Et kutusu.",
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5590),
+                            Description = "Beğendim ki.",
                             IsDeleted = false,
-                            Title = "Çakıl."
+                            Title = "Praesentium."
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(7140),
-                            Description = "Ex aut.",
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5610),
+                            Description = "Nisi cezbelendi.",
                             IsDeleted = false,
-                            Title = "Masanın."
+                            Title = "Quis."
                         });
                 });
 
@@ -257,39 +242,39 @@ namespace ProductApp.Persistence.Migrations
                         {
                             Id = 1,
                             BrandId = 1,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 464, DateTimeKind.Local).AddTicks(760),
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 520, DateTimeKind.Local).AddTicks(8210),
                             Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            Discount = 4.241939079508870m,
+                            Discount = 2.08938680117480m,
                             IsDeleted = false,
-                            Price = 393.53m,
-                            Title = "Handmade Fresh Chair"
+                            Price = 698.63m,
+                            Title = "Handmade Steel Shoes"
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 2,
-                            CreatedDate = new DateTime(2024, 3, 14, 23, 50, 52, 464, DateTimeKind.Local).AddTicks(870),
-                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-                            Discount = 6.340364870931530m,
+                            CreatedDate = new DateTime(2024, 3, 22, 15, 12, 5, 520, DateTimeKind.Local).AddTicks(8300),
+                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                            Discount = 6.325430123488820m,
                             IsDeleted = false,
-                            Price = 327.42m,
-                            Title = "Awesome Fresh Pizza"
+                            Price = 501.29m,
+                            Title = "Incredible Frozen Chicken"
                         });
                 });
 
-            modelBuilder.Entity("CategoryProduct", b =>
+            modelBuilder.Entity("ProductApp.Domain.Entities.ProductCategory", b =>
                 {
-                    b.HasOne("ProductApp.Domain.Entities.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
 
-                    b.HasOne("ProductApp.Domain.Entities.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("ProductApp.Domain.Entities.Detail", b =>
@@ -314,9 +299,35 @@ namespace ProductApp.Persistence.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("ProductApp.Domain.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("ProductApp.Domain.Entities.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProductApp.Domain.Entities.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("ProductApp.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Details");
+
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("ProductApp.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

@@ -94,24 +94,24 @@ namespace ProductApp.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryProduct",
+                name: "ProductCategories",
                 columns: table => new
                 {
-                    CategoriesId = table.Column<int>(type: "int", nullable: false),
-                    ProductsId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryProduct", x => new { x.CategoriesId, x.ProductsId });
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Categories_CategoriesId",
-                        column: x => x.CategoriesId,
+                        name: "FK_ProductCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryProduct_Products_ProductsId",
-                        column: x => x.ProductsId,
+                        name: "FK_ProductCategories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -122,9 +122,9 @@ namespace ProductApp.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2000), false, "Computers & Home" },
-                    { 2, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2020), false, "Books" },
-                    { 3, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2050), true, "Music, Music & Jewelery" }
+                    { 1, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6750), false, "Electronics & Automotive" },
+                    { 2, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6770), false, "Kids, Grocery & Clothing" },
+                    { 3, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(6780), true, "Sports" }
                 });
 
             migrationBuilder.InsertData(
@@ -132,10 +132,10 @@ namespace ProductApp.Persistence.Migrations
                 columns: new[] { "Id", "CreatedDate", "IsDeleted", "Name", "ParentId", "Priorty" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2840), false, "Elektronik", 0, 1 },
-                    { 2, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850), false, "Giyim", 0, 2 },
-                    { 3, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850), false, "Bilgisayar", 1, 1 },
-                    { 4, new DateTime(2024, 3, 14, 23, 50, 52, 456, DateTimeKind.Local).AddTicks(2850), false, "Çanta", 2, 1 }
+                    { 1, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7260), false, "Elektronik", 0, 1 },
+                    { 2, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7260), false, "Giyim", 0, 2 },
+                    { 3, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7270), false, "Bilgisayar", 1, 1 },
+                    { 4, new DateTime(2024, 3, 22, 15, 12, 5, 515, DateTimeKind.Local).AddTicks(7270), false, "Çanta", 2, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -143,9 +143,9 @@ namespace ProductApp.Persistence.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Description", "IsDeleted", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(6990), "Voluptatem non.", false, "Aperiam." },
-                    { 2, 3, new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(7120), "Et kutusu.", false, "Çakıl." },
-                    { 3, 2, new DateTime(2024, 3, 14, 23, 50, 52, 457, DateTimeKind.Local).AddTicks(7140), "Ex aut.", false, "Masanın." }
+                    { 1, 1, new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5560), "Voluptate minima.", false, "Yaptı." },
+                    { 2, 3, new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5590), "Beğendim ki.", false, "Praesentium." },
+                    { 3, 2, new DateTime(2024, 3, 22, 15, 12, 5, 516, DateTimeKind.Local).AddTicks(5610), "Nisi cezbelendi.", false, "Quis." }
                 });
 
             migrationBuilder.InsertData(
@@ -153,18 +153,18 @@ namespace ProductApp.Persistence.Migrations
                 columns: new[] { "Id", "BrandId", "CreatedDate", "Description", "Discount", "IsDeleted", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 3, 14, 23, 50, 52, 464, DateTimeKind.Local).AddTicks(760), "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", 4.241939079508870m, false, 393.53m, "Handmade Fresh Chair" },
-                    { 2, 2, new DateTime(2024, 3, 14, 23, 50, 52, 464, DateTimeKind.Local).AddTicks(870), "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart", 6.340364870931530m, false, 327.42m, "Awesome Fresh Pizza" }
+                    { 1, 1, new DateTime(2024, 3, 22, 15, 12, 5, 520, DateTimeKind.Local).AddTicks(8210), "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality", 2.08938680117480m, false, 698.63m, "Handmade Steel Shoes" },
+                    { 2, 2, new DateTime(2024, 3, 22, 15, 12, 5, 520, DateTimeKind.Local).AddTicks(8300), "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit", 6.325430123488820m, false, 501.29m, "Incredible Frozen Chicken" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryProduct_ProductsId",
-                table: "CategoryProduct",
-                column: "ProductsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Details_CategoryId",
                 table: "Details",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_CategoryId",
+                table: "ProductCategories",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -177,16 +177,16 @@ namespace ProductApp.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CategoryProduct");
-
-            migrationBuilder.DropTable(
                 name: "Details");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "ProductCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Brands");
