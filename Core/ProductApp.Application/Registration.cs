@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using ProductApp.Application.Exceptions;
 
 namespace ProductApp.Application
 {
@@ -13,6 +14,7 @@ namespace ProductApp.Application
         {
             var assembly  = Assembly.GetExecutingAssembly();
 
+            services.AddTransient<ExceptionMiddleware>();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
         }
     }

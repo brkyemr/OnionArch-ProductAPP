@@ -1,6 +1,7 @@
 using ProductApp.Persistence;
 using ProductApp.Application;
 using ProductApp.Mapper;
+using ProductApp.Application.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,8 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+//app.UseHttpsRedirection();
+app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
