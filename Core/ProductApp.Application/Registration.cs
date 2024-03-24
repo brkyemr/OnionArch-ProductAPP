@@ -9,6 +9,7 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using ProductApp.Application.Behaviours;
 using ProductApp.Application.Exceptions;
+using ProductApp.Application.Features.Products.Rules;
 
 namespace ProductApp.Application
 {
@@ -19,6 +20,7 @@ namespace ProductApp.Application
             var assembly  = Assembly.GetExecutingAssembly();
 
             services.AddTransient<ExceptionMiddleware>();
+            services.AddTransient<ProductRules>();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
             services.AddValidatorsFromAssembly(assembly);
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr");

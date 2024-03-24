@@ -40,7 +40,7 @@ namespace ProductApp.Application.Exceptions
 			List<string> errors = new()
 			{
 				$"Hata Mesajı : {exception.Message}",
-				$"Mesaj Açıklaması : {exception.InnerException?.ToString()}" 
+				//$"Mesaj Açıklaması : {exception.InnerException?.ToString()}" 
 			};
 
             return httpContext.Response.WriteAsync(new ExceptionModel{
