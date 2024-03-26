@@ -22,6 +22,7 @@ var env = builder.Environment;
 Console.WriteLine("config read in the pg.cs => ",builder.Configuration["ConnectionStrings:DefaultConnection"]);
 
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
 var app = builder.Build();

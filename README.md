@@ -35,3 +35,6 @@ dotnet sln ProductAPP.sln add ./Presentation/ProductApp.Api
 
 dotnet add package Microsoft.EntityFrameworkCore --version 7.0.4
 dotnet add package Microsoft.AspNetCore.Http.Abstractions --version 2.2.0
+dotnet add package Microsoft.Extensions.DependencyInjection.Abstractions --version 8.0.0
+dotnet add package Microsoft.Extensions.Configuration --version 7.0.0
+dotnet add package Microsoft.Extensions.Options.ConfigurationExtensions --version 8.0.0
