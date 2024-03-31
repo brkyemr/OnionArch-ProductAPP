@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using ProductApp.Application.Bases;
 using ProductApp.Application.Features.Products.Rules;
+using ProductApp.Application.Interfaces.AutoMapper;
 using ProductApp.Application.Interfaces.UnitOfWorks;
 using ProductApp.Domain.Entities;
 
 namespace ProductApp.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
+    public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommandRequest, Unit>
     {
-        private readonly IUnitOfWork unitOfWork;
         private readonly ProductRules productRules;
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork, ProductRules productRules)
+        public CreateProductCommandHandler(ProductRules productRules, IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) : base(mapper, unitOfWork, httpContextAccessor)
         {
-            this.unitOfWork = unitOfWork;
             this.productRules = productRules;
         }
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
